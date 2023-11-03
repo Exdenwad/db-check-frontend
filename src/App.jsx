@@ -1,17 +1,16 @@
-import {Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { Header } from "./components/Header/Header";
 import { MainPage } from "./routes/index";
 import { Dashboards } from "./routes/Dasboards/Dashboards";
 
-function App() {
-
-  return (
-    <>
-        <Routes>
-            <Route index element={<MainPage />}/>
-            <Route path={"/test"} element={<Dashboards />}/>
-        </Routes>
-    </>
-  )
+export default function App() {
+    return (
+        <>
+            <Header />
+            <Routes>
+                <Route index element={<MainPage />} />
+                <Route path={"/test"} element={<Dashboards />} />
+            </Routes>
+        </>
+    )
 }
-
-export default App
