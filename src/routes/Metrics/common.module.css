@@ -3,7 +3,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 6px;
 }
 
@@ -18,7 +18,7 @@
 .stat-block-counter {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .stat-block-counter__value {
@@ -26,6 +26,30 @@
     font-weight: 500;
     color: white;
     font-family: 'Calleo-Trial';
+}
+
+.stat-block_gap {
+    gap: 15px;
+}
+
+.stat-block-bot-status {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.stat-block-bot-status__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFFB2;
+}
+
+.stat-block-bot-status__item img {
+    width: 15px;
+    height: 15px;
 }
 
 .stat-block-counter__img {
@@ -48,6 +72,23 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+}
+
+.stat-block-ram::before {
+    border-radius: 20px;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    background:
+        radial-gradient(circle at top left, #B1FA63E5 -5%, transparent 30%),
+        radial-gradient(circle at center left, #FE77332F -5%, transparent 50%),
+        radial-gradient(circle at top center, #9881FFE5 -5%, transparent 40%);
 }
 
 .stat-block-ram__gradient {
@@ -63,4 +104,55 @@
     width: 100%;
     height: 100%;
     align-self: center;
+}
+
+.stat-block-ram__value {
+    align-self: center;
+    font-size: 40px;
+    font-weight: 500;
+    color: white;
+    font-family: 'Calleo-Trial';
+    z-index: 2;
+    text-align: center;
+    position: relative;
+    animation: 5s alternate 0s 1 appear;
+}
+
+.stat-block-ram__value::before {
+    content: '0%';
+    position: absolute;
+    top: -8px;
+    left: -4px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFFE5;
+}
+
+.stat-block-ram__value::after {
+    content: '100%';
+    position: absolute;
+    top: -8px;
+    right: -16px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFFE5;
+}
+
+.stat-block-ram__arrow {
+    width: 92px;
+    height: 18px;
+    position: absolute;
+    animation: 5s alternate 0s 1 appear;
+    transform-origin: right;
+    left: calc(50% - 92px);
+    top: calc(-18px);
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
 }

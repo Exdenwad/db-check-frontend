@@ -3,7 +3,7 @@ import styles from "./../common.module.css";
 export default function Counter(props) {
     return (
         <div
-            className={`${styles["stat-block"]} ${styles["stat-block-counter"]}`}
+            className={`${styles["stat-block"]} ${styles["stat-block-counter"]} ${props?.additionalClass}`}
             style={props.styles}
         >
             <div className={styles["stat-block-title"]}>

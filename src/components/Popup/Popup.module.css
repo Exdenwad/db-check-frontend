@@ -1,0 +1,23 @@
+.popup-wrapper {
+    position: fixed;
+    top: 28px;
+    width: calc(100% - 50px);
+    height: 40px;
+    background: #FE7733;
+    border-radius: 20px;
+    z-index: 2;
+    display: none;
+    align-items: center;
+    font-family: Calleo-Trial;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFFFFF;
+    padding-left: 15px;
+    padding-right: 15px;
+    column-gap: 8px;
+    vertical-align: middle;
+}
+
+.popup-wrapper_active {
+    display: flex;
+}

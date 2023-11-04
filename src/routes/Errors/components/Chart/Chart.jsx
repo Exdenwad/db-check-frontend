@@ -13,55 +13,78 @@ function getGradient(ctx, chartArea) {
 }
 
 export default function ChartElement(props) {
-    const canvas = useRef(null);
+    const canvasRef = useRef(null);
+
     useEffect(() => {
-        const speedData = {
-            datasets: [
-                {
-                    axis: "x",
-                    data: [35, 50, 65, 50, 70, 90, 40, 65, 50, 35, 15],
-                    tension: 0.5,
-                    borderColor: function(context) {
-                        const chart = context.chart;
-                        const {ctx, chartArea} = chart;
-                        if (!chartArea) {
-                          // This case happens on initial chart load
-                          return;
-                        }
-                        return getGradient(ctx, chartArea);
-                    },
-                }
-            ]
-          };
+        const gradient = canvasRef.current.getContext("2d").createLinearGradient(0, 200, canvasRef.current.width, canvasRef.current.height);
+        gradient.addColorStop(0, "#B1FA63");
+        gradient.addColorStop(0.5, "#FF8040");
+        gradient.addColorStop(1, "#9881FF");
+
         const chart = new Chart(
-            canvas.current.getContext("2d"),
+            canvasRef.current.getContext("2d"),
             {
                 type: 'line',
-                data: speedData,
+                data: {
+                    datasets: [
+                        {
+                            borderColor: gradient,
+                            data: [
+                                {
+                                    x: '15',
+                                    y: 50
+                                },
+                                {
+                                    x: '30',
+                                    y: 70
+                                },
+                                {
+                                    x: '45',
+                                    y: 60
+                                },
+                                {
+                                    x: '60 сек',
+                                    y: 40
+                                },
+                            ],
+                            cubicInterpolationMode: 'monotone',
+                            tension: 0.1,
+                        }
+                    ]
+                },
                 options: {
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        tooltip: {
+                            enabled: false
                         }
                     },
                     scales: {
                         y: {
-                            type: "linear",
-                            beginAtZero: true,
-                            grace: "10",
-                            grid: {
-                                color: ""
+                            axis: "y",
+                            ticks: {
+                                color: "#FFFFFFCC"
                             },
-                            axis: "y"
+                            grid: {
+                                display: false
+                            },
+                            border: {
+                                color: "#FFFFFFCC"
+                            }
                         },
                         x: {
-                            type: "linear",
-                            beginAtZero: true,
-                            grace: "50",
-                            grid: {
-                                color: ""
-                            },
                             axis: "x",
+                            ticks: {
+                                color: "#FFFFFFCC"
+                            },
+                            grid: {
+                                display: false
+                            },
+                            border: {
+                                color: "#FFFFFFCC"
+                            }
                         }
                     }
                 }
@@ -75,7 +98,7 @@ export default function ChartElement(props) {
 
     return (
         <>
-            <canvas ref={canvas} className={styles["chart-view"]}></canvas>
+            <canvas ref={canvasRef} className={styles["chart-wrapper"]}></canvas>
         </>
     );
 }
