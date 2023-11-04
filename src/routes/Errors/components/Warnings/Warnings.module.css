@@ -1,0 +1,40 @@
+.content {
+    margin-top: 35px;
+    width: 100%;
+}
+
+.errors_row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.errors_row_title {
+    font-size: 18;
+    font-weight: 700;
+    color: white;
+    font-family: 'Calleo-Trial', sans-serif;
+}
+
+.errors_row_count {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: 'Calleo-Trial', sans-serif;
+    color: rgb(177, 250, 99);
+}
+
+.error_container {
+    display: flex;
+    margin-left: 20px;
+    padding: 15px 20px 15px 0px;
+    border-bottom: 1px solid rgb(131, 131, 131);
+}
+
+.error_container_text {
+    margin-left: 6px;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    font-family: 'Calleo-Trial', sans-serif;
+}

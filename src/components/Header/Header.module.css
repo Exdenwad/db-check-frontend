@@ -1,21 +1,20 @@
 .navbar {
-    width: calc(100% - 50px);
+    width: 100%;
     padding-bottom: 6px;
     padding-top: 6px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-left: 25px;
-    margin-right: 25px;
     gap: 12px;
     position: relative;
+    margin-top: 16px;
     margin-bottom: 35px;
 }
 
 .navbar::after {
     width: calc(100% - 4px);
     content: '';
-    border: 2px solid #444444;
+    border: 1px solid #444444;
     border-radius: 2px;
     position: absolute;
     bottom: -4px;
@@ -31,6 +30,8 @@
     font-weight: 600;
     background: none;
     border: none;
+    color: #FFFFFF;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .button-wrapper {
@@ -43,15 +44,13 @@
 .button-wrapper_active::after {
     width: calc(100% - 4px);
     content: '';
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     border-radius: 2px;
     position: absolute;
-    bottom: -10.5px;
+    bottom: -11px;
     left: 0;
     z-index: 1;
-
     animation: 0.5s ease-out 0s 1 appear;
-
     background: linear-gradient(270deg, #B1FA63 -0.02%, #FE7733 49.4%, #9881FF 103%) border-box;
 }
 
