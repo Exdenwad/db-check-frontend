@@ -16,8 +16,18 @@
     padding-right: 15px;
     column-gap: 8px;
     vertical-align: middle;
+    display: flex;
+    animation: 6s alternate 0s 1 appear;
 }
 
-.popup-wrapper_active {
-    display: flex;
+@keyframes appear {
+    0% {
+      opacity: 0%;
+    }
+    30% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
 }

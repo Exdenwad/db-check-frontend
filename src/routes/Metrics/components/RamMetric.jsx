@@ -117,7 +117,7 @@ export default function RamMetric(props) {
                     alt=""
                     ref={arrowRef}
                 />
-                {props.percentage}%
+                {props.percentage}
             </div>
         </div>
     )

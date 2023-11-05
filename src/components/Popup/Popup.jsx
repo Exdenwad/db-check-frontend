@@ -1,20 +1,13 @@
-import {useEffect, useState } from "react";
 import styles from "./Popup.module.css";
 
 export default function Popup(props) {
-    const [isVisible, setIsVisible] = useState(false);
-
-    console.log(props);
-    useEffect(() => {
-        if (props?.isActive === true) {
-            setIsVisible(true);
-            setTimeout(() => setIsVisible(false), 3000);
-        }
-    }, []);
+    if (!props.isVisible) {
+        return null;
+    }
 
     return (
         <div
-            className={`${styles["popup-wrapper"]} ${isVisible ? styles["popup-wrapper_active"] : ""}`}
+            className={styles["popup-wrapper"]}
         >
             <img
                 src="/img/bdclosed.svg"

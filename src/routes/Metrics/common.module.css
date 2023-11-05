@@ -1,5 +1,4 @@
 .stat {
-    width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -45,6 +44,7 @@
     font-size: 14px;
     font-weight: 400;
     color: #FFFFFFB2;
+    text-align: center;
 }
 
 .stat-block-bot-status__item img {
@@ -121,8 +121,6 @@
 .stat-block-ram__value::before {
     content: '0%';
     position: absolute;
-    top: -8px;
-    left: -4px;
     font-weight: 400;
     font-size: 14px;
     color: #FFFFFFE5;
@@ -131,8 +129,6 @@
 .stat-block-ram__value::after {
     content: '100%';
     position: absolute;
-    top: -8px;
-    right: -16px;
     font-weight: 400;
     font-size: 14px;
     color: #FFFFFFE5;
@@ -144,8 +140,6 @@
     position: absolute;
     animation: 5s alternate 0s 1 appear;
     transform-origin: right;
-    left: calc(50% - 92px);
-    top: calc(-18px);
 }
 
 @keyframes appear {
@@ -154,5 +148,69 @@
     }
     100% {
         opacity: 100%;
+    }
+}
+
+@media screen and (min-width: 419px) {
+    .stat-block-ram__value {
+        position: relative;
+    }
+
+    .stat-block-ram__value::after {
+        top: -8px;
+        right: -16px;
+    }
+
+    .stat-block-ram__value::before {
+        top: -8px;
+        left: -4px;
+    }
+
+    .stat-block-ram__arrow {
+        left: calc(50% - 92px);
+        top: calc(-18px);
+    }
+}
+
+@media screen and (max-width: 418px) {
+    .stat-block-ram__value {
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .stat-block-ram__value::after {
+        top: -30px;
+        right: -4px;
+    }
+
+    .stat-block-ram__value::before {
+        top: -30px;
+        left: -0px;
+    }
+
+    .stat-block-ram__arrow {
+        left: calc(50% - 92px);
+        top: calc(-25px);
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .stat-block-ram__value {
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .stat-block-ram__value::after {
+        top: -40px;
+        right: -8px;
+    }
+
+    .stat-block-ram__value::before {
+        top: -40px;
+        left: -4px;
+    }
+
+    .stat-block-ram__arrow {
+        top: calc(-40px);
     }
 }

@@ -1,7 +1,7 @@
 import styles from "./Warnings.module.css";
 
 function getMessages(args = []) {
-    return args.map((el, idx) => {
+    return args?.map((el, idx) => {
         return (
             <div className={styles["error_container"]} key={idx}>
                 <img src="img/error.svg" alt="error" />

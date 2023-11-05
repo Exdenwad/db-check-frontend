@@ -6,7 +6,7 @@ import { config } from "../../store/environment";
 
 function cropNumberSymbols(number, sizeAfterPoint, suffix = "") {
     if(!number) {
-        return "неизвестно";
+        return 0;
     }
 
     if (number === 0) {
@@ -103,7 +103,7 @@ export default function Metrics(props) {
             <RamMetric
                 title={"PostgreSQL память"}
                 percentage={
-                    props?.["disk_usage_percantage"] ?? 0
+                    cropNumberSymbols(props?.["disk_usage_percantage"], 0, "%")
                 }
                 styles={{
                     gridColumnStart: 1,
@@ -114,7 +114,7 @@ export default function Metrics(props) {
             />
             <Counter
                 title={"Самая длинная операция"}
-                value={cropNumberSymbols(props?.["max_operation_duration"], 5, "сек")}
+                value={cropNumberSymbols(props?.["max_operation_duration"], 3, "сек")}
                 styles={{
                     gridColumnStart: 1,
                     gridColumnEnd: 3,
@@ -124,7 +124,7 @@ export default function Metrics(props) {
             />
             <Counter
                 title={"Среднее время отклика"}
-                value={cropNumberSymbols(props?.["mean_response_time"], 5, "сек")}
+                value={cropNumberSymbols(props?.["mean_response_time"], 3, "сек")}
                 styles={{
                     gridColumnStart: 1,
                     gridColumnEnd: 3,
