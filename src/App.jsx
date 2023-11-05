@@ -15,7 +15,7 @@ export default function App() {
         .then((data) => data.json())
         .then((jsData) => {
             setState(jsData);
-            if (jsData?.["is_active"]) {
+            if (!jsData?.["is_active"]) {
                 setTimeout(() => {
                     setIsPopup(true);
                     setTimeout(() => {

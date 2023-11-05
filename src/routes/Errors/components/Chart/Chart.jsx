@@ -4,14 +4,6 @@ import styles from "./Chart.module.css";
 
 Chart.register(...registerables);
 
-function getGradient(ctx, chartArea) {
-    const gradient = ctx.createLinearGradient(0, chartArea.left, 100, chartArea.right);
-    gradient.addColorStop(0, "#B1FA63");
-    gradient.addColorStop(0.3, "#FE7733");
-    gradient.addColorStop(0.6, "#9881FF");
-    return gradient;
-}
-
 export default function ChartElement(props) {
     const canvasRef = useRef(null);
 
@@ -32,19 +24,11 @@ export default function ChartElement(props) {
                             data: [
                                 {
                                     x: '15',
-                                    y: 50
-                                },
-                                {
-                                    x: '30',
-                                    y: 70
-                                },
-                                {
-                                    x: '45',
-                                    y: 60
+                                    y: 0
                                 },
                                 {
                                     x: '60 сек',
-                                    y: 40
+                                    y: (props?.rollbacks ?? 0)
                                 },
                             ],
                             cubicInterpolationMode: 'monotone',
@@ -94,7 +78,7 @@ export default function ChartElement(props) {
         return () => {
             chart.destroy();
         };
-    }, []);
+    }, [props?.rollbacks]);
 
     return (
         <>
